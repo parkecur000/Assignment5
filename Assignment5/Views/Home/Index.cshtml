@@ -5,44 +5,43 @@
 <div class="text-center">
     <h1 class="display-4">Welcome to my BookList Website</h1>
     
-<div>
-    <table class="table">
-        <thead class="thead-dark">
-            <tr>
-                <th scope="col">BookID</th>
-                <th scope="col">Title</th>
-                <th scope="col">Author Last Name</th>
-                <th scope="col">Author First Name</th>
-                <th scope="col">Author Middle Name</th>
-                <th scope="col">Publisher</th>
-                <th scope="col">ISBN</th>
-                <th scope="col">Classification</th>
-                <th scope="col">Category</th>
-                <th scope="col">Price</th>
-            </tr>
-        </thead>
-        <tbody>
-
-            @foreach (var x in Model)
-            {
+    <div>
+        <table class="table">
+            <thead class="thead-dark">
                 <tr>
-                    <td>@x.BookID</td>
-                    <td>@x.Title</td>
-                    <td>@x.AuthorLast</td>
-                    <td>@x.AuthorFirst</td>
-                    <td>@x.AuthorMiddle</td>
-                    <td>@x.Publisher</td>
-                    <td>@x.ISBN</td>
-                    <td>@x.Classification</td>
-                    <td>@x.Category</td>
-                    <td>$@x.Price</td>
+                    <th scope="col">BookID</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Author Last Name</th>
+                    <th scope="col">Author First Name</th>
+                    <th scope="col">Author Middle Name</th>
+                    <th scope="col">Publisher</th>
+                    <th scope="col">ISBN</th>
+                    <th scope="col">Classification</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Price</th>
                 </tr>
-            }
+            </thead>
+            <tbody>
 
-        </tbody>
-    </table>
+                @foreach (var x in Model)
+                {
+                    <tr>
+                        <td>@x.BookID</td>
+                        <td>@x.Title</td>
+                        <td>@x.AuthorLast</td>
+                        <td>@x.AuthorFirst</td>
+                        <td>@x.AuthorMiddle</td>
+                        <td>@x.Publisher</td>
+                        <td>@x.ISBN</td>
+                        <td>@x.Classification</td>
+                        <td>@x.Category</td>
+                        <td>$@x.Price</td>
+                    </tr>
+                }
 
-</div>
+            </tbody>
+        </table>
+
+    </div>
     
-
 </div>
