@@ -7,8 +7,8 @@ namespace Assignment5.Models
 {
     public class EFBookListRepository : IBookListRepository
     {
-        private BookListContext _context;
-        public EFBookListRepository(BookListContext context)
+        private BookDBContext _context;
+        public EFBookListRepository(BookDBContext context)
         {
             _context = context;
         }
