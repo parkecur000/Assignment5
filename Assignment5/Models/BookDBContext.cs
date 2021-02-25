@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Assignment5.Models
 {
-    public class BookListContext : DbContext
+    public class BookDBContext : DbContext
     {
-        public BookListContext(DbContextOptions<BookListContext> options) : base (options)
+        public BookDBContext(DbContextOptions<BookDBContext> options) : base (options)
         {
 
         }

@@ -27,7 +27,7 @@ namespace Assignment5
         {
             services.AddControllersWithViews();
 
-            services.AddDbContext<BookListContext>(options =>
+            services.AddDbContext<BookDBContext>(options =>
             {
                 options.UseSqlServer(Configuration["ConnectionStrings:Assignment5Connection"]);
             });
@@ -58,8 +58,11 @@ namespace Assignment5
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    "pagination",       //this is code used to change the url routing to look nicer
+                    "Projects/P{page}",
+                    new { Controller = "Home", action = "Index" });
+
+                endpoints.MapDefaultControllerRoute();
             });
 
             SeedData.EnsurePopulated(app);

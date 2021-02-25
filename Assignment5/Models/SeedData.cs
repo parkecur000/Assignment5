@@ -12,7 +12,7 @@ namespace Assignment5.Models
     {
         public static void EnsurePopulated (IApplicationBuilder application)
         {
-            BookListContext context = application.ApplicationServices.CreateScope().ServiceProvider.GetRequiredService<BookListContext>();
+            BookDBContext context = application.ApplicationServices.CreateScope().ServiceProvider.GetRequiredService<BookDBContext>();
 
             if(context.Database.GetPendingMigrations().Any())
             {
@@ -32,7 +32,8 @@ namespace Assignment5.Models
                         ISBN = "978-0451419439",
                         Classification = "Fiction",
                         Category = "Classic",
-                        Price = 9.95
+                        Price = 9.95,
+                        PageLength = 1488
                     },
 
                     new Book
@@ -45,7 +46,8 @@ namespace Assignment5.Models
                         ISBN = "978-0553384611",
                         Classification = "Non-Fiction",
                         Category = "Biography",
-                        Price = 21.54
+                        Price = 21.54,
+                        PageLength = 832
                     },
 
                     new Book
@@ -59,6 +61,7 @@ namespace Assignment5.Models
                         Classification = "Non-Fiction",
                         Category = "Biography",
                         Price = 14.58,
+                        PageLength = 944
                     },
                     new Book
                     {
@@ -71,6 +74,7 @@ namespace Assignment5.Models
                         Classification = "Non-Fiction",
                         Category = "Biography",
                         Price = 11.61,
+                        PageLength = 864
                     },
                     new Book
                     {
@@ -82,6 +86,7 @@ namespace Assignment5.Models
                         Classification = "Non-Fiction",
                         Category = "Historical",
                         Price = 13.33,
+                        PageLength = 528
                     },
                     new Book
                     {
@@ -93,6 +98,7 @@ namespace Assignment5.Models
                         Classification = "Fiction",
                         Category = "Historical Fiction",
                         Price = 15.95,
+                        PageLength = 288
                     },
                     new Book
                     {
@@ -104,6 +110,7 @@ namespace Assignment5.Models
                         Classification = "Non-Fiction",
                         Category = "Self-Help",
                         Price = 14.99,
+                        PageLength = 304
                     },
                     new Book
                     {
@@ -115,6 +122,7 @@ namespace Assignment5.Models
                         Classification = "Non-Fiction",
                         Category = "Self-Help",
                         Price = 21.66,
+                        PageLength = 240
                     },
                     new Book
                     {
@@ -126,6 +134,7 @@ namespace Assignment5.Models
                         Classification = "Non-Fiction",
                         Category = "Business",
                         Price = 29.16,
+                        PageLength = 400
                     },
                     new Book
                     {
@@ -137,6 +146,43 @@ namespace Assignment5.Models
                         Classification = "Fiction",
                         Category = "Thrillers",
                         Price = 15.03,
+                        PageLength =642
+                    },
+                    new Book
+                    {
+                        Title = "When Breath Becomes Air",
+                        AuthorFirst = "Paul",
+                        AuthorLast = "Kalanithi",
+                        Publisher = "Random House",
+                        ISBN = "978-0812988406",
+                        Classification = "Non-Fiction",
+                        Category = "Autobiography",
+                        Price = 26.00,
+                        PageLength = 256
+                    },
+                    new Book
+                    {
+                        Title = "The Way of Kings",
+                        AuthorFirst = "Brandon",
+                        AuthorLast = "Sanderson",
+                        Publisher = "Tor Books",
+                        ISBN = "978-0765326355",
+                        Classification = "Fiction",
+                        Category = "Fantasy",
+                        Price = 23.64,
+                        PageLength = 1005
+                    },
+                    new Book
+                    {
+                        Title = "The Boy, the Mole, the Fox and the Horse",
+                        AuthorFirst = "Charlie",
+                        AuthorLast = "Mackesy",
+                        Publisher = "HarperCollins Publishers",
+                        ISBN = "978-0062976581",
+                        Classification = "Fiction",
+                        Category = "Illustrated",
+                        Price = 14.54,
+                        PageLength = 128
                     }
 
                 );
