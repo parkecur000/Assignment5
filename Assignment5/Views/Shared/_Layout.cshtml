@@ -27,10 +27,14 @@
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
+    <div class="row m-1 p-1">
+        <div class="col-2">
+            <h1>Welcome to my Booklist</h1>
+            <vc:navigation-menu />
+        </div>
+        <div class="col-10">
             @RenderBody()
-        </main>
+        </div>
     </div>
 
     <footer class="border-top footer text-muted">
