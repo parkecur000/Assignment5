@@ -12,4 +12,15 @@
     <td>@Model.Category</td>
     <td>@Model.PageLength</td>
     <td>$@Model.Price</td>
+    <td>
+        <div>
+            <form id="@Model.BookID" asp-page="/Cart" method="post">
+                <input type="hidden" asp-for="BookID" />
+                <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+                <button type="submit">Add to Cart</button>
+            </form>
+        </div>
+    </td>
 </tr>
+
+

@@ -2,6 +2,7 @@ using Assignment5.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -33,6 +34,12 @@ namespace Assignment5
             });
 
             services.AddScoped<IBookListRepository, EFBookListRepository>();
+
+            services.AddRazorPages();
+            services.AddDistributedMemoryCache();
+            services.AddSession();
+            services.AddScoped<Cart>(b => SessionCart.GetCart(b));
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>(); //Check this out later
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,6 +58,8 @@ namespace Assignment5
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
+            app.UseSession();
+
             app.UseRouting();
 
             app.UseAuthorization();
@@ -59,12 +68,12 @@ namespace Assignment5
             {
                 //Endpoint for category and page input
                 endpoints.MapControllerRoute("categorypage",
-                    "{category}/{page:int}",
+                    "{category}/{pageNum:int}",
                     new { Controller = "Home", action = "Index" });
 
                 //Endpoint for onlly Page input
                 endpoints.MapControllerRoute("page",
-                    "P{page:int}",
+                    "P{pageNum:int}",
                     new { Controller = "Home", action = "Index" });
 
                 //Endpoint for only Category input
@@ -75,13 +84,15 @@ namespace Assignment5
 
                 endpoints.MapControllerRoute(
                     "pagination",
-                    "P{page}",
+                    "P{pageNum}",
                     new { Controller = "Home", action = "Index" });
 
                 endpoints.MapDefaultControllerRoute();
+
+                endpoints.MapRazorPages();
             });
 
-            SeedData.EnsurePopulated(app);
+            //SeedData.EnsurePopulated(app);
         }
     }
 }
